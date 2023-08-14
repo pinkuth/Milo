@@ -20,7 +20,7 @@ Sending a form to a player is simple!
     <dependency>
         <groupId>dev.milo</groupId>
         <artifactId>form</artifactId>
-        <version>1.0.0</version>
+        <version>${milo.version}</version>
     </dependency>
 </dependencies>
 ```
