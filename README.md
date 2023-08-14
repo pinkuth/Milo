@@ -6,8 +6,18 @@ This plugin will allow you to use the Cumulus API to create forms and send them 
 
 - [Cumulus Documentation](https://github.com/GeyserMC/Cumulus/wiki)
 
-## Usage
+### Example
 Sending a form to a player is simple!
+```java
+// Getting plugin instance from plugin manager
+Milo milo = getProxy().getPluginManager().getPluginByName("Milo");
+milo.sendForm(player, form);
+
+// Getting plugin instance statically
+Milo.getInstance().sendForm(player, form);
+```
+
+## Maven
 ```xml
 <repositories>
     <repository>
@@ -23,60 +33,6 @@ Sending a form to a player is simple!
         <version>${milo.version}</version>
     </dependency>
 </dependencies>
-```
-### Simple
-```java
-Milo.getInstance().sendForm(player, form);
-```
-
-## Detailed
-*For those who don't know how to add it without a detailed example*
-
-```java
-package dev.milo.form.examples;
-
-import dev.milo.form.Milo;
-import dev.waterdog.waterdogpe.command.Command;
-import dev.waterdog.waterdogpe.command.CommandSender;
-import dev.waterdog.waterdogpe.player.ProxiedPlayer;
-import dev.waterdog.waterdogpe.plugin.Plugin;
-import org.geysermc.cumulus.form.SimpleForm;
-
-/**
- * Example plugin class
- */
-public class ExamplePlugin extends Plugin {
-
-    @Override
-    public void onEnable() {
-        getProxy().getCommandMap().registerCommand(new ExampleCommand());
-    }
-
-    /**
-     * Example command class
-     *
-     * This would normally be in another file and not nested in the
-     * main plugin class.
-     */
-    public static class ExampleCommand extends Command {
-
-        public ExampleCommand() {
-            // /form
-            super("form");
-        }
-
-        @Override
-        public boolean onExecute(CommandSender commandSender, String s, String[] strings) {
-            // Create form
-            SimpleForm.Builder simpleForm = SimpleForm.builder();
-            // add elements to form...
-
-            // send form to player
-            Milo.getInstance().sendForm((ProxiedPlayer) commandSender, simpleForm);
-            return true;
-        }
-    }
-}
 ```
 
 ## Issues & Contributing
