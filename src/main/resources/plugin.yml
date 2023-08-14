@@ -1,4 +1,4 @@
 name: Milo
-version: 1.0.0
-main: net.xenoservers.forms.Milo
+version: 1.0.0-SNAPSHOT
+main: dev.milo.form.Milo
 author: pinkuth
